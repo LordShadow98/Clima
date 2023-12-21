@@ -31,5 +31,9 @@ Capturas del Proyecto
 Inicial
 
 pantalla Inical
+![Texto alternativo](Clima/Images/image.png)
 
 Respuesta api
+
+![Texto alternativo](Clima/Images/image-1.png)
+
