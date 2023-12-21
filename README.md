@@ -52,3 +52,11 @@ Obtener Datos del Clima mediante el Formulario
 Utiliza el formulario en la página principal para obtener información del clima para una ciudad específica. Realiza una solicitud POST a la ruta /weather con el nombre de la ciudad en el cuerpo de la solicitud.
 
 Asegúrate de tener una clave de API válida de OpenWeatherMap configurada en el archivo de código fuente.
+
+Capturas del Proyecto 
+
+Inicial
+
+![pantalla Inical](Clima\Images\image.png)
+
+ ![Respuesta api](Clima\Images\image-1.png)
