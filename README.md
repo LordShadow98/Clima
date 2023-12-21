@@ -1,54 +1,63 @@
-Descripción del Proyecto
-Este repositorio alberga una aplicación web sencilla que proporciona información meteorológica utilizando Node.js y Express. La arquitectura de esta aplicación sigue el enfoque monolítico, lo que significa que todos los componentes están integrados en un solo código base y funcionan como una unidad única.
-
-Requisitos Previos
-Asegúrate de tener Node.js instalado en tu sistema antes de comenzar. Puedes descargar Node.js desde https://nodejs.org/.
+README.md
+Arquitectura Monolítica
+Este proyecto sigue una arquitectura monolítica, donde la aplicación se desarrolla como una única unidad, integrando tanto el frontend como el backend en un solo código base. La comunicación entre el cliente y el servidor se realiza a través de solicitudes HTTP, utilizando Express.js en el backend para manejar las rutas y lógica del servidor.
 
 Instalación de Dependencias
-Clona el repositorio a tu máquina local:
+Antes de ejecutar la aplicación, asegúrate de tener Node.js instalado en tu sistema. Luego, sigue estos pasos:
+
+Clona este repositorio:
 
 bash
 Copy code
 git clone https://github.com/tu-usuario/nombre-del-repo.git
+Navega al directorio del proyecto:
+
+bash
+Copy code
 cd nombre-del-repo
-Instala las dependencias utilizando npm:
+Instala las dependencias tanto para el frontend como para el backend:
 
 bash
 Copy code
 npm install
-Cómo Ejecutar la Aplicación
-Una vez que las dependencias estén instaladas, puedes utilizar los siguientes comandos para ejecutar la aplicación:
+Este comando instalará las bibliotecas necesarias que se encuentran en los archivos package.json tanto en la carpeta raíz como en la carpeta public.
 
-Para iniciar la aplicación en modo de desarrollo con reinicio automático:
+Levantar la Aplicación
+Una vez que las dependencias estén instaladas, puedes ejecutar la aplicación con los siguientes comandos:
 
-bash
-Copy code
-npm run dev
-Para iniciar la aplicación en modo de producción:
+Para Desarrollo
+Ejecuta el servidor Express (backend):
 
 bash
 Copy code
 npm start
-La aplicación estará disponible en http://localhost:3000.
+El servidor estará disponible en http://localhost:3000/api/weather.
+
+Abre otro terminal y ejecuta el servidor de desarrollo para el frontend:
+
+bash
+Copy code
+npm run dev
+La aplicación estará disponible en http://localhost:3000/weather.
+
+Para Producción
+Construye la aplicación para producción:
+
+bash
+Copy code
+npm run build
+Este comando compilará y optimizará el código para producción.
+
+Ejecuta el servidor Express (backend):
+
+bash
+Copy code
+npm start
+La aplicación estará disponible en http://localhost:3000/weather.
 
 Uso de la Aplicación
-Obtener Datos del Clima a través de la API
-Haz una solicitud GET a la siguiente ruta para obtener datos del clima para una ciudad específica:
+Una vez que la aplicación esté en funcionamiento, puedes acceder a la interfaz de usuario en http://localhost:3000/weather. Ingresa el nombre de la ciudad y haz clic en "Consultar Clima" para obtener información en tiempo real sobre el clima.
 
-bash
-Copy code
-/api/weather/:city
-Sustituye :city con el nombre de la ciudad para la cual deseas obtener información meteorológica.
+Nota: Asegúrate de tener una clave de API válida de OpenWeatherMap y reemplazar '999d54a97f49d0f57ae4e7af8870e4d4' con tu propia clave en los archivos index.html y app.js.
 
-Interfaz de Usuario
-Puedes acceder a la interfaz de usuario visitando la siguiente ruta:
-
-bash
-Copy code
-/weather
-Esta ruta devuelve un formulario simple para realizar solicitudes de información meteorológica.
-
-Obtener Datos del Clima mediante el Formulario
-Utiliza el formulario en la página principal para obtener información del clima para una ciudad específica. Realiza una solicitud POST a la ruta /weather con el nombre de la ciudad en el cuerpo de la solicitud.
-
-Asegúrate de tener una clave de API válida de OpenWeatherMap configurada en el archivo de código fuente.
+    
