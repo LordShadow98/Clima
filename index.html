@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Consulta del Clima</title>
+</head>
+<body>
+    <h1>Consulta del Clima</h1>
+
+    <form id="weatherForm">
+        <label for="cityInput">Ingresa el nombre de la ciudad:</label>
+        <input type="text" id="cityInput" name="city" required>
+        <button type="button" onclick="getWeatherData()">Consultar Clima</button>
+    </form>
+
+    <div id="weatherInfo"></div>
+
+    <script>
+        async function getWeatherData() {
+            const cityInput = document.getElementById('cityInput');
+            const weatherInfoDiv = document.getElementById('weatherInfo');
+
+            // Validar que se haya ingresado el nombre de la ciudad
+            if (!cityInput.value) {
+                alert('Por favor, ingrese el nombre de la ciudad.');
+                return;
+            }
+
+            try {
+                // Realizar solicitud a la API externa para obtener información del clima
+                const apiKey = '999d54a97f49d0f57ae4e7af8870e4d4'; // Reemplaza con tu clave de API
+                const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(cityInput.value)}&appid=${apiKey}`;
+                const response = await fetch(apiUrl);
+                const weatherData = await response.json();
+
+                // Mostrar la información del clima en el div weatherInfo
+                weatherInfoDiv.innerHTML = `
+                    <h2>Información del Clima para ${cityInput.value}</h2>
+                    <p>Temperatura: ${weatherData.main.temp} °C</p>
+                    <p>Humedad: ${weatherData.main.humidity}%</p>
+                    <p>Presión Atmosférica: ${weatherData.main.pressure} hPa</p>
+                    <p>Viento: ${weatherData.wind.speed} km/h</p>
+                `;
+            } catch (error) {
+                console.error('Error al obtener la información del clima:', error);
+                weatherInfoDiv.innerHTML = '<p>Error al obtener la información del clima</p>';
+            }
+        }
+    </script>
+</body>
+</html>
